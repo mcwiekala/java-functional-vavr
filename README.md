@@ -20,7 +20,7 @@ List<String> destinationList = sourceList.stream()
       .collect(Collectors.toList());
 ```
 
-###New features includes:
+### New features includes:
 * Lambda
 * Stream/primitive streams
 * Optional
@@ -35,5 +35,5 @@ However this features are not ideal and it could be delivered in better way. Tha
 
 https://github.com/vavr-io/vavr
 
-##Project goals
+## Project goals
 This is a simple project to check Vavr features. 
