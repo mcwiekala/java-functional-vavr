@@ -36,5 +36,11 @@ However these features are not ideal and it could be delivered in better way. Th
 
 [Check Git Repository](https://github.com/vavr-io/vavr)
 
+### What is monad?
+![](docs/monad.png)
+
+Monad is a wrapper type such as Optional or Stream. It puts value in some context and allows to perform operation. For example the result might be: wrapped value, null, exception or another failure.
+There are three laws: left identity, right identity and associativity.
+
 ## Project goals
 This is a simple project to check Vavr features. 
