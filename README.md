@@ -42,5 +42,46 @@ However these features are not ideal and it could be delivered in better way. Th
 Monad is a wrapper type such as Optional or Stream. It puts value in some context and allows to perform operation. For example the result might be: wrapped value, null, exception or another failure.
 There are three laws: left identity, right identity and associativity.
 
+### Examples
+```java
+// before
+String urlString = "";
+try {
+    URL url = new URL("https://github.com");
+    urlString = url.toString();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+// after
+String url = Try.of(() -> new URL(badStringUrl))
+                .map(uri -> uri.toString())
+                .getOrElseThrow(() -> new RuntimeException("Url error!));
+```
+
+```java
+// before
+BiFunction<String, Integer, Boolean> function2 = (text, integer) -> Integer.parseInt(text) == integer;
+// after
+Function2<String, Integer, Boolean> function = (text, integer) -> Integer.parseInt(text) == integer;
+```
+Either:
+```java
+Either<String, Integer> processExamMark(int score) {
+    if (score > 70) {
+        return Either.right(score);
+    } else {
+        return Either.left("Exam not passed!");
+    }
+}
+```
+Pattern Matching:
+```java
+ int number = 3;
+ String numberAsText = Match(number).of(
+         Case($(is(1)), "one"),
+         Case($(is(2)), "two"),
+         Case($(is(3)), "three"),
+         Case($(), "?"));
+```
 ## Project goals
 This is a simple project to check Vavr features. 
