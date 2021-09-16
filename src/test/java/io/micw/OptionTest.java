@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static io.vavr.API.$;
-import static io.vavr.API.Case;
-import static io.vavr.API.Match;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -20,9 +17,10 @@ class OptionTest {
         // given
         String text = "text";
         String defaultText = "default";
+        // when
         Option<String> name = Option.of(text);
         Option<String> nullValue = Option.of(null);
-        // when ,then
+        // then
         assertThat(name.getOrElse(defaultText), equalTo(text));
         assertThat(nullValue.getOrElse(defaultText), equalTo(defaultText));
     }
@@ -46,11 +44,12 @@ class OptionTest {
         Optional<String> stringOptional = Optional.ofNullable(text);
         Optional<String> stringOptional2 = Optional.empty();
 
+        // when
         Option<String> result1 = Option.ofOptional(stringOptional);
         Exception exception = assertThrows(exceptionClass, () -> Option.ofOptional(stringOptional2)
                 .getOrElseThrow(UnsupportedOperationException::new));
 
-        // when ,then
+        // then
         assertThat(result1.getOrElse("default"), equalTo(text));
         assertThat(exception.getClass(), equalTo(exceptionClass));
     }
@@ -60,9 +59,9 @@ class OptionTest {
         // given
         AtomicReference<Boolean> bool = new AtomicReference<>(false);
         Option<String> option = Option.none();
+        // when
         option.onEmpty(() -> bool.set(true));
-
-        // when ,then
+        // then
         assertThat(bool.get(), equalTo(true));
     }
 
