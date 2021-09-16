@@ -29,10 +29,10 @@ List<String> destinationList = sourceList.stream()
 However these features are not ideal and it could be delivered in better way. That's the reason why Vavr was invented (formerly called Javaslang). 
 
 ## Vavr
-
+![](docs/vavr.png)
 >Vavr is an object-functional language extension to Java 8, which aims to reduce the lines of code and increase code quality. It provides persistent collections, functional abstractions for error handling, concurrent programming, pattern matching and much more.
 
->Vavr is a new Guava
+>Vavr is a new Guava!
 
 [Check Git Repository](https://github.com/vavr-io/vavr)
 
