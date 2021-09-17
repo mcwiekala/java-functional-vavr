@@ -43,6 +43,25 @@ Monad is a wrapper type such as Optional or Stream. It puts value in some contex
 There are three laws: left identity, right identity and associativity.
 
 ### Examples
+Streams:
+```java
+// Stream API
+Stream<String> javaStream2 = Stream.of(collection);
+Set<String> result = Stream.of(collection)
+        .collect(Collectors.toCollection(LinkedHashSet::new));
+
+javaStream.forEach(item -> System.out.println("List items: " + item));
+javaStream.forEach(item -> System.out.println("List items: " + item)); // throws IllegalStateException
+Set<String> s1 = javaStream.collect(toCollection(LinkedHashSet::new));
+
+// vs
+
+Stream<String> vavrStream2 = Stream.of(collection);
+vavrStream2.forEach(item -> System.out.println("List items: " + item));
+vavrStream2.forEach(item -> System.out.println("List items: " + item)); // Streams implements Iterable!
+Set<String> s2 = vavrStream2.toLinkedSet();
+```
+Try:
 ```java
 // before
 String urlString = "";
@@ -57,7 +76,7 @@ String url = Try.of(() -> new URL(badStringUrl))
                 .map(uri -> uri.toString())
                 .getOrElseThrow(() -> new RuntimeException("Url error!));
 ```
-
+Functional Interfaces
 ```java
 // before
 BiFunction<String, Integer, Boolean> function2 = (text, integer) -> Integer.parseInt(text) == integer;
@@ -83,5 +102,13 @@ Pattern Matching:
          Case($(is(3)), "three"),
          Case($(), "?"));
 ```
+Touple:
+```
+int amount = 1;
+double price = 2399.99;
+String product = "Bike";
+Tuple3<String, Integer, Double> order = Tuple.of(product, amount, price);
+```
+
 ## Project goals
 This is a simple project to check Vavr features. 
