@@ -42,7 +42,7 @@ However these features are not ideal and it could be delivered in better way. Th
 Monad is a wrapper type such as Optional or Stream. It puts value in some context and allows to perform operation. For example the result might be: wrapped value, null, exception or another failure.
 There are three laws: left identity, right identity and associativity.
 
-### Examples
+## Examples
 Streams:
 ```java
 // Stream API
@@ -52,7 +52,6 @@ javaStream.forEach(item -> System.out.println("List items: " + item)); // throws
 Set<String> s1 = javaStream.collect(toCollection(LinkedHashSet::new));
 
 // vs
-
 Stream<String> vavrStream = Stream.of(collection);
 vavrStream.forEach(item -> System.out.println("List items: " + item));
 vavrStream.forEach(item -> System.out.println("List items: " + item)); // Streams implements Iterable!
