@@ -99,7 +99,7 @@ Pattern Matching:
          Case($(), "?"));
 ```
 Touple:
-```
+```java
 int amount = 1;
 double price = 2399.99;
 String product = "Bike";
