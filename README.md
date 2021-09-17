@@ -46,20 +46,17 @@ There are three laws: left identity, right identity and associativity.
 Streams:
 ```java
 // Stream API
-Stream<String> javaStream2 = Stream.of(collection);
-Set<String> result = Stream.of(collection)
-        .collect(Collectors.toCollection(LinkedHashSet::new));
-
+Stream<String> javaStream = Stream.of(collection);
 javaStream.forEach(item -> System.out.println("List items: " + item));
 javaStream.forEach(item -> System.out.println("List items: " + item)); // throws IllegalStateException
 Set<String> s1 = javaStream.collect(toCollection(LinkedHashSet::new));
 
 // vs
 
-Stream<String> vavrStream2 = Stream.of(collection);
-vavrStream2.forEach(item -> System.out.println("List items: " + item));
-vavrStream2.forEach(item -> System.out.println("List items: " + item)); // Streams implements Iterable!
-Set<String> s2 = vavrStream2.toLinkedSet();
+Stream<String> vavrStream = Stream.of(collection);
+vavrStream.forEach(item -> System.out.println("List items: " + item));
+vavrStream.forEach(item -> System.out.println("List items: " + item)); // Streams implements Iterable!
+Set<String> s2 = vavrStream.toLinkedSet();
 ```
 Try:
 ```java
